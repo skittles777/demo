@@ -11,6 +11,7 @@ typedef struct line
 
 pline insert(char *str);
 void print(pline Head);
+void FreeAllNode(pline Head);
 
 int main(int argc, int *agrv[])
 {
@@ -45,6 +46,7 @@ int main(int argc, int *agrv[])
         // printf("a");
         q = q->next;
     }
+    FreeAllNode(Head);
     return 0;
 }
 
@@ -61,4 +63,16 @@ pline insert(char *str)
 void print(pline Head)
 {
     printf("%s", Head->strline);
+}
+
+void FreeAllNode(pline Head)
+{
+    pline p=Head;
+    pline tmp;
+    while (NULL!=p)
+    {
+        tmp=p;
+        p=p->next;
+        free(tmp);
+    }
 }
