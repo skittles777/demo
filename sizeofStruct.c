@@ -1,7 +1,7 @@
 #include <stdio.h>
 void main()
 {
-    struct learn
+    struct test
     {
         char a;
         short b;
@@ -10,13 +10,14 @@ void main()
     } AA;
     struct learn
     {
-        unsigned int a:8;
-        unsigned short b:8;
+        unsigned int a:1;
+        unsigned short b:1;
         long c;
         double d;
     } BB;
-    size_t e = sizeof(AA.d);
+    size_t e = sizeof(AA);
     //sizeof的操作数不能是位域
-    size_t f = sizeof(BB.a);
-    printf("%u", e);
+    size_t f = sizeof(BB);
+    printf("%u\n", e);
+    printf("%u\n", f);
 }
